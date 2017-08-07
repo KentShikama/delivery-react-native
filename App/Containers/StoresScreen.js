@@ -6,9 +6,10 @@ import {
   FlatList
 } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
+import Break from '../Components/Break'
 import React from 'react'
 
-export default class OrdersScreen extends React.Component {
+export default class StoresScreen extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -17,7 +18,7 @@ export default class OrdersScreen extends React.Component {
     }
 
 	  componentDidMount() {
-      const url = "http://192.168.1.11:8000/api/categories?format=json";
+      const url = "http://192.168.1.11:8000/api/stores?format=json";
         return fetch(url)
           .then((response) => response.json())
           .then((responseJson) => {
@@ -35,17 +36,25 @@ export default class OrdersScreen extends React.Component {
 
     render() {
         _keyExtractor = (item) => item.id
+        start_date = new Date(2011,1,11)
+        end_date = new Date(2011,1,12)
+        current_time = new Date(2011,2,13)
       return (
         <List>
           <FlatList
             data={this.state.data}
             renderItem={({ item }) => (
-              <ListItem
-                roundAvatar
-                title={item.name}
-                subtitle={item.name}
-                avatar={{ uri: "http://192.168.1.11:8000/media/" + item.image }}
-              />
+                <Break
+                  type={{ uri: "http://192.168.1.11:8000/media/" + item.image }}
+                  title={item.name}
+                  start={start_date}
+                  end={end_date}
+                  duration="30"
+                  onPress={() => this.onEventPress(item)}
+                  currentTime={current_time}
+                  isCurrentDay="false"
+                  isActive="false"
+                />
             )}
             keyExtractor={_keyExtractor}
           />

@@ -1,6 +1,7 @@
-import { TabNavigator, TabBarBottom } from 'react-navigation'
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 
-import OrdersScreen from '../Containers/OrdersScreen'
+import CategoriesScreen from '../Containers/CategoriesScreen'
+import StoresScreen from '../Containers/StoresScreen'
 import MessagesScreen from '../Containers/MessagesScreen'
 import ProfileScreen from '../Containers/ProfileScreen'
 
@@ -10,8 +11,17 @@ import {Platform} from 'react-native'
 
 import styles from './Styles/NavigationStyles'
 
+const OrdersStack = StackNavigator({
+  Categories: { screen: CategoriesScreen },
+  Stores: { screen: StoresScreen }
+}, {
+  headerMode: 'none',
+  initialRouteName: 'Categories',
+  cardStyle: styles.card
+})
+
 const TabNav = TabNavigator({
-  Orders: { screen: OrdersScreen },
+  Orders: { screen: OrdersStack },
   Messages: { screen: MessagesScreen },
   Profile: { screen: ProfileScreen }
 }, {
