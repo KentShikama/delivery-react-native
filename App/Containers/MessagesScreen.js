@@ -1,23 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
-import AppNavigation from './App/Navigation/AppNavigation'
+import React from 'react'
 
-export default class AwesomeProject extends Component {
-  render() {
-    return (<AppNavigation />)
-  }
+export default class MessagesScreen extends React.Component {
+    constructor (props) {
+        super(props)
+    }
+    render () {
+	    return (
+		   <View style={styles.container}>
+			 <Text style={styles.welcome}>
+				Will become messages
+			 </Text>
+		   </View>
+	    )
+    }
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -37,5 +40,3 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
