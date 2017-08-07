@@ -7,6 +7,7 @@ import {
 } from 'react-native'
 import { List, ListItem } from 'react-native-elements'
 import Break from '../Components/Break'
+import CategoryAutocomplete from '../Components/CategoryAutocomplete'
 import React from 'react'
 
 export default class CategoriesScreen extends React.Component {
@@ -17,7 +18,7 @@ export default class CategoriesScreen extends React.Component {
         }
     }
 
-	  componentDidMount() {
+	componentDidMount() {
       const url = "http://192.168.1.11:8000/api/categories?format=json";
         return fetch(url)
           .then((response) => response.json())
@@ -31,7 +32,7 @@ export default class CategoriesScreen extends React.Component {
           .catch((error) => {
             console.error(error);
           });
-      }
+    }
 
 
     render() {
@@ -39,28 +40,31 @@ export default class CategoriesScreen extends React.Component {
         start_date = new Date(2011,1,11)
         end_date = new Date(2011,1,12)
         current_time = new Date(2011,2,13)
-         const { navigate } = this.props.navigation;
-      return (
-        <List>
-          <FlatList
-            data={this.state.data}
-            renderItem={({ item }) => (
-                <Break
-                  type={{ uri: "http://192.168.1.11:8000/media/" + item.image }}
-                  title={item.name}
-                  start={start_date}
-                  end={end_date}
-                  duration="30"
-                  onPress={() => navigate('Stores', { })}
-                  currentTime={current_time}
-                  isCurrentDay="false"
-                  isActive="false"
-                />
-            )}
-            keyExtractor={_keyExtractor}
-          />
-        </List>
-      );
+        const { navigate } = this.props.navigation;
+        return (
+	        <View style={styles.container}>
+				<List>
+			    <FlatList
+					data={this.state.data}
+					renderItem={({ item }) => (
+					<Break
+					  type={{ uri: "http://192.168.1.11:8000/media/" + item.image }}
+					  title={item.name}
+					  start={start_date}
+					  end={end_date}
+					  duration="30"
+					  onPress={() => navigate('Stores', { })}
+					  currentTime={current_time}
+					  isCurrentDay="false"
+					  isActive="false"
+					/>
+				)}
+				keyExtractor={_keyExtractor}
+			    />
+				</List>
+			</View>
+
+        );
     }
 
 }

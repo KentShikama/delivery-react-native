@@ -1,5 +1,6 @@
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 
+import SchoolSelectionScreen from '../Containers/SchoolSelectionScreen'
 import CategoriesScreen from '../Containers/CategoriesScreen'
 import StoresScreen from '../Containers/StoresScreen'
 import MessagesScreen from '../Containers/MessagesScreen'
@@ -12,11 +13,12 @@ import {Platform} from 'react-native'
 import styles from './Styles/NavigationStyles'
 
 const OrdersStack = StackNavigator({
+  SchoolSelection: { screen: SchoolSelectionScreen },
   Categories: { screen: CategoriesScreen },
   Stores: { screen: StoresScreen }
 }, {
   headerMode: 'none',
-  initialRouteName: 'Categories',
+  initialRouteName: 'SchoolSelection',
   cardStyle: styles.card
 })
 
