@@ -44,7 +44,7 @@ export default class OrdersScreen extends React.Component {
                 roundAvatar
                 title={item.name}
                 subtitle={item.name}
-                avatar={{ uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" }}
+                avatar={{ uri: "http://192.168.1.11:8000/media/" + item.image }}
               />
             )}
             keyExtractor={_keyExtractor}
