@@ -23,11 +23,15 @@ export default class NoMenuOrderScreen extends React.Component {
         }
     }
     add_item = () => {
-        previous_item_quantities = this.state.item_quantities
-        item_quantities = previous_item_quantities.concat([{ item: this.state.item, quantity: this.state.quantity, key: previous_item_quantities.length.toString() }])
-        this.setState({ item_quantities: item_quantities, item: "", quantity: "1" })
+        if (this.state.item != "") {
+                previous_item_quantities = this.state.item_quantities
+                item_quantities = previous_item_quantities.concat([{ item: this.state.item, quantity: this.state.quantity, key: previous_item_quantities.length.toString() }])
+                this.setState({ item_quantities: item_quantities, item: "", quantity: "1" })
+        }
     }
+
     render () {
+        const { navigate } = this.props.navigation;
 	    return (
 		   <View style={styles.container}>
 			 <Text style={styles.welcome}>
@@ -62,10 +66,15 @@ export default class NoMenuOrderScreen extends React.Component {
                 <FlatList
                     data={this.state.item_quantities}
                     renderItem={({ item }) => (
-                        <Text>{ item.item }{item.quantity}</Text>
+                        <Text>{ item.item }{ item.quantity }</Text>
                     )}
                 />
                 </List>
+						<Button
+							title="Checkout"
+							color="#841584"
+							onPress={() => navigate('Checkout', { state: this.state })}
+						/>
 		   </View>
 	    )
     }

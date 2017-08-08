@@ -4,6 +4,8 @@ import SchoolSelectionScreen from '../Containers/SchoolSelectionScreen'
 import CategoriesScreen from '../Containers/CategoriesScreen'
 import StoresScreen from '../Containers/StoresScreen'
 import NoMenuOrderScreen from '../Containers/NoMenuOrderScreen'
+import CheckoutScreen from '../Containers/CheckoutScreen'
+import LoginScreen  from '../Containers/LoginScreen'
 import MessagesScreen from '../Containers/MessagesScreen'
 import ProfileScreen from '../Containers/ProfileScreen'
 
@@ -17,10 +19,12 @@ const OrdersStack = StackNavigator({
   SchoolSelection: { screen: SchoolSelectionScreen },
   Categories: { screen: CategoriesScreen },
   Stores: { screen: StoresScreen },
-  NoMenuOrder: { screen: NoMenuOrderScreen }
+  NoMenuOrder: { screen: NoMenuOrderScreen },
+  Checkout: { screen: CheckoutScreen },
+  Login: { screen: LoginScreen }
 }, {
   headerMode: 'none',
-  initialRouteName: 'SchoolSelection',
+  initialRouteName: 'Login',
   cardStyle: styles.card
 })
 
