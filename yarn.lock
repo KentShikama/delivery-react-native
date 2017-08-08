@@ -3340,6 +3340,10 @@ react-devtools-core@2.3.1:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-autocomplete-input@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-autocomplete-input/-/react-native-autocomplete-input-3.3.1.tgz#70a1be97d98bddb63d94879739069610d1817f54"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -3366,6 +3370,10 @@ react-native-elements@^0.15.0:
     prop-types "^15.5.8"
     react-native-side-menu "^0.20.1"
     react-native-tab-navigator "^0.3.3"
+
+react-native-row-component@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-native-row-component/-/react-native-row-component-1.1.5.tgz#4851e91d613384e6c1e365feef7a215dbd3a90d3"
 
 react-native-side-menu@^0.20.1:
   version "0.20.3"

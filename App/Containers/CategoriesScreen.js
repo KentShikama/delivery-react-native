@@ -19,7 +19,7 @@ export default class CategoriesScreen extends React.Component {
     }
 
 	componentDidMount() {
-      const url = "http://192.168.1.11:8000/api/categories?format=json";
+      const url = "http://192.168.1.11:8000/api/categories?format=json&school=" + this.state.school;
         return fetch(url)
           .then((response) => response.json())
           .then((responseJson) => {
@@ -54,7 +54,7 @@ export default class CategoriesScreen extends React.Component {
                       start={start_date}
                       end={end_date}
                       duration="30"
-                      onPress={() => navigate('Stores', { })}
+                      onPress={() => navigate('Stores', { category_id: item.id })}
                       currentTime={current_time}
                       isCurrentDay="false"
                       isActive="false"

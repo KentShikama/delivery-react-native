@@ -52,8 +52,8 @@ export default class SchoolSelectionScreen extends Component {
           defaultValue={query}
           onChangeText={text => this.setState({ query: text })}
           placeholder="Select School"
-          renderItem={({ name }) => (
-            <TouchableOpacity onPress={() => navigate('Categories', { query : name }) }>
+          renderItem={({ id, name }) => (
+            <TouchableOpacity onPress={() => navigate('Categories', { query : id }) }>
               <Text style={styles.itemText}>
                 {name}
               </Text>

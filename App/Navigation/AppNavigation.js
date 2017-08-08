@@ -3,6 +3,7 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 import SchoolSelectionScreen from '../Containers/SchoolSelectionScreen'
 import CategoriesScreen from '../Containers/CategoriesScreen'
 import StoresScreen from '../Containers/StoresScreen'
+import NoMenuOrderScreen from '../Containers/NoMenuOrderScreen'
 import MessagesScreen from '../Containers/MessagesScreen'
 import ProfileScreen from '../Containers/ProfileScreen'
 
@@ -15,7 +16,8 @@ import styles from './Styles/NavigationStyles'
 const OrdersStack = StackNavigator({
   SchoolSelection: { screen: SchoolSelectionScreen },
   Categories: { screen: CategoriesScreen },
-  Stores: { screen: StoresScreen }
+  Stores: { screen: StoresScreen },
+  NoMenuOrder: { screen: NoMenuOrderScreen }
 }, {
   headerMode: 'none',
   initialRouteName: 'SchoolSelection',
